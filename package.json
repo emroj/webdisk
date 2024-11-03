@@ -1,0 +1,16 @@
+{
+  "name": "webdisk",
+  "version": "1.0.27",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Emroj Hossain",
+  "license": "ISC",
+  "description": "This package provide easy solution to create and store new files and folders in browser.",
+  "keywords": [
+    "webdisk",
+    "opfs",
+    "Browser file system"
+  ]
+}
