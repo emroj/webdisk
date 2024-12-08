@@ -74,7 +74,7 @@ class Webdisk {
 
     for await (const handle of directoryIterator) {
       if (handle.kind === "file") {
-        allFiles.push(handle);
+        allFiles.push(handle.name);
       }
     }
     return allFiles;
