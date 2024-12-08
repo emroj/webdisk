@@ -28,7 +28,7 @@ console.log(await data.text());
 
 ```
 
-## Checking if file exists.
+## Checking if file exists
 
 ```
 import Webdisk from "webdisk";
@@ -51,5 +51,19 @@ if(await webdisk.fileExists("some/other/folder/otherfile.txt")){
     console.log("File does not exists");
 }
 
+
+```
+
+## List all files in a directory
+
+```
+import Webdisk from "webdisk";
+
+const webdisk = new Webdisk();
+await webdisk.connect();  //connects to browser filesystem
+
+await webdisk.createFile("folder/path/nested/filename1.txt", "This is file 1");
+await webdisk.createFile("folder/path/nested/filename2.txt", "This is file 2");
+await webdisk.listFiles("folder/path/nested/")
 
 ```

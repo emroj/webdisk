@@ -65,32 +65,19 @@ class Webdisk {
   };
 
   listFiles = async (folderPath) => {
-    const fileHandles = [];
-    const directoryHandles = [];
-    const entries = {};
+    const allFiles = [];
 
-    let folderHandle = await this.getFolderHandle(file, { create: false });
+    let folderHandle = await this.getFolderHandle(folderPath, {
+      create: false,
+    });
     const directoryIterator = folderHandle.values();
-    const directoryEntryPromises = [];
+
     for await (const handle of directoryIterator) {
       if (handle.kind === "file") {
-        fileHandles.push({ handle, nestedPath });
-        directoryEntryPromises.push(
-          handle.getFile().then((file) => {
-            return {
-              name: handle.name,
-              kind: handle.kind,
-              size: file.size,
-              type: file.type,
-              lastModified: file.lastModified,
-              relativePath: nestedPath,
-              handle,
-            };
-          })
-        );
+        allFiles.push(handle);
       }
     }
-    return fileHandles;
+    return allFiles;
   };
 
   createFolder = async () => {};
