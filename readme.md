@@ -7,8 +7,9 @@ Webdisk is a browser-based file system management library. Webdisk is used to cr
 ```
 import Webdisk from "webdisk";
 
-let webdisk = new Webdisk();
-await webdisk.connect();
+const webdisk = new Webdisk();
+await webdisk.connect();  //connects to browser filesystem
+
 await webdisk.createFile("folder/path/nested/filename.txt", "content of the file");
 
 ```
@@ -18,8 +19,9 @@ await webdisk.createFile("folder/path/nested/filename.txt", "content of the file
 ```
 import Webdisk from "webdisk";
 
-let webdisk = new Webdisk();
-await webdisk.connect();
+const webdisk = new Webdisk();
+await webdisk.connect();  //connects to browser filesystem
+
 await webdisk.createFile("folder/path/nested/filename.txt", "content of the file");
 let data = await webdisk.readFile("folder/path/nested/filename.txt");
 console.log(await data.text());
@@ -31,13 +33,22 @@ console.log(await data.text());
 ```
 import Webdisk from "webdisk";
 
-let webdisk = new Webdisk();
-await webdisk.connect();
+const webdisk = new Webdisk();
+await webdisk.connect();  //connects to browser filesystem
+
 if(await webdisk.fileExists("folder/path/nested/filename.txt")){
     let data = await webdisk.readFile("folder/path/nested/filename.txt");
     console.log(await data.text());
 }else{
-    console.log("file does not exists");
+    console.log("File does not exists");
+}
+
+
+if(await webdisk.fileExists("some/other/folder/otherfile.txt")){
+    let data = await webdisk.readFile("some/other/folder/otherfile.txt");
+    console.log(await data.text());
+}else{
+    console.log("File does not exists");
 }
 
 
