@@ -28,7 +28,7 @@ console.log(await data.text());
 
 ```
 
-## Checking if file exists
+## Checking if file exists.
 
 ```
 import Webdisk from "webdisk";
