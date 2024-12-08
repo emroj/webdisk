@@ -90,6 +90,7 @@ class Webdisk {
         );
       }
     }
+    return fileHandles;
   };
 
   createFolder = async () => {};
